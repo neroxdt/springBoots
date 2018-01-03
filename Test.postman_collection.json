@@ -1,0 +1,212 @@
+{
+	"info": {
+		"name": "Test",
+		"_postman_id": "71293a6c-e31d-2b5e-71d5-a6502de1b24b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Oauth Test Multi",
+			"description": "",
+			"item": [
+				{
+					"name": "Login Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "banistmoATM",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "cnbsecretATM",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-FORWARDED-FOR",
+								"value": "10.45.123.35,35.45.12.134"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/token?password=Banistmo123&username=diego&client_id=banistmoATM&grant_type=password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": "Banistmo123",
+									"equals": true
+								},
+								{
+									"key": "username",
+									"value": "diego",
+									"equals": true
+								},
+								{
+									"key": "client_id",
+									"value": "banistmoATM",
+									"equals": true
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "banistmoATM",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "cnbsecretATM",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"type": "any"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"client-source\":\"10.45.67.88\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/token?grant_type=refresh_token&refresh_token=b4d0c24a-4bbb-4f69-bc98-870a7ae17ca2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"equals": true
+								},
+								{
+									"key": "refresh_token",
+									"value": "b4d0c24a-4bbb-4f69-bc98-870a7ae17ca2",
+									"equals": true
+								}
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Check AUTH",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "f970fa8b-6639-4309-a298-013d20ee59dd",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Amzn-Trace-Id",
+								"value": "1005"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requestMessage\": {\r\n    \"header\": {\r\n      \"uuid\": \"Azm Track Id\",\r\n      \"timestamp\": \"04/Dec/2017:16:00:29 +0000\",\r\n      \"timezone\": \"UTC-5\",\r\n      \"auditable\": \"true\",\r\n      \"requestContext\": {\r\n        \"userAgent\": \"AmazonAPIGateway_0v7brt9d84\",\r\n        \"resource\": \"withdraw\",\r\n        \"httpMethod\": \"POST\",\r\n        \"sourceIP\": \"52.38.212.201\"\r\n      }\r\n    },\r\n    \"body\": {\r\n      \"checkAuthorizationRQ\": {\r\n        \"transactionType\": \"atmwithdraw\",\r\n        \"parameters\": [\r\n          {\r\n            \"key\": \"pin\",\r\n            \"value\": \"123\"\r\n          },\r\n          {\r\n            \"key\": \"amount\",\r\n            \"value\": \"1000\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  }\r\n} "
+						},
+						"url": {
+							"raw": "http://localhost:8080/greet?name=Mundo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"greet"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Mundo",
+									"equals": true
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
